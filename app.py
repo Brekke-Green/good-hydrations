@@ -10,7 +10,9 @@ plants = {"alocasia": ["2023/07/08/-08:00:00"]}
 def home():
     return render_template('index.html', plants=plants)
 
-##    return f"ENJOY SOME GOOD HYDRATIONS \n {plants}"
+@app.route("/signup")
+def signup():
+    return render_template('signup.html')
 
 if  __name__ == "__main__":
     port= int(os.environ.get('PORT', 5000))
