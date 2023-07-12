@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  python:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/data
+      - waterlogs:/data
+    depends_on:
+      - db
+  db:
+    image: redis:4.0.11-alpine 
+volumes:
+  waterlogs: {} 
+
