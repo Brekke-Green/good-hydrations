@@ -20,7 +20,9 @@ def signup():
 
 @app.route("/login")
 def login():
-    return render_template('login.html')
+    global logged_in 
+    logged_in = True
+    return render_template('login.html', logged_in=logged_in)
 
 @app.route("/plants")
 def plants():
