@@ -8,9 +8,11 @@ plants_data = {
         "alocasia": ["2023/07/08/-08:00:00", "2023/07/20/-08:00:00"],
         "hedgehog aloe": ["2023/07/12/-08:00:00", "2023/07/18/-08:00:00"],}
 
+logged_in = False
+
 @app.route("/")
 def home():
-    return render_template('index.html', plants=plants_data)
+    return render_template('index.html', logged_in=logged_in)
 
 @app.route("/signup")
 def signup():

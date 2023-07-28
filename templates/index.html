@@ -7,7 +7,9 @@
 </head>
 <body>
     <h1>This is a Flask App containerised with Docker</h1>
-    <div>{{ plants }}</div>
+    {% if not logged_in %}
+        <p><a href="/login">LOGIN</a></p>
+    {% endif %}
     <p><a href="/signup">SIGN UP</a></p>
     <p><a href="/plants">PLANTS</a></p>
 </body>
