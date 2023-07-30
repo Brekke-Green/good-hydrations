@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import os
 from time import  time
 
@@ -29,6 +29,12 @@ def login():
 @app.route("/plants")
 def plants():
     return render_template('plants.html', plants=plants_data)
+
+## NOT FUNCTIONAL - continue to build out selecting individual plant and reporting logs/data
+## @app.route("/plant/<name>")
+## def plant(name):
+##    plant = request.args.get('name')
+##    return render_template('plant.html', plant=plant)
 
 if  __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
