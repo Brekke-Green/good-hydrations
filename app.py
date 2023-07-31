@@ -30,11 +30,11 @@ def login():
 def plants():
     return render_template('plants.html', plants=plants_data)
 
-## NOT FUNCTIONAL - continue to build out selecting individual plant and reporting logs/data
-## @app.route("/plant/<name>")
-## def plant(name):
-##    plant = request.args.get('name')
-##    return render_template('plant.html', plant=plant)
+####NOT FUNCTIONAL - continue to build out selecting individual plant and reporting logs/data
+##@app.route("/plants/<name>")
+##def plant(name):
+##    plant_logs = plants_data[name] 
+##    return render_template('plants.html', plant=name, logs=plant_logs)
 
 if  __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
