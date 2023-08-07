@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import os
 from time import  time
 
@@ -29,13 +29,23 @@ def login():
 
 @app.route("/plants")
 def plants():
-    return render_template('plants.html', plants=plants_data)
+    plant_urls = generate_urls(plants_data)
+    return render_template('plants.html', plants=plants_data, plant_urls=plant_urls)
+
+def generate_urls(plants_data):
+    result = {}
+    for key in plants_data.keys():
+        result[key] = f"/plants/{key}"
+    return result
 
 ####NOT FUNCTIONAL - continue to build out selecting individual plant and reporting logs/data
-##@app.route("/plants/<name>")
-##def plant(name):
+@app.route("/plants/<name>")
+def plant(name):
 ##    plant_logs = plants_data[name] 
 ##    return render_template('plants.html', plant=name, logs=plant_logs)
+    plant_log = {name: plants_data[name]}
+    plant_urls = generate_urls(plant_log)
+    return render_template('plants.html', plants=plant_log, plant_urls=plant_urls)
 
 if  __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))

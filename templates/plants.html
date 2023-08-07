@@ -7,23 +7,13 @@
 <body>
     <h1>PLANTS</h1>
     <!-- TODO: map each plant to ul and each log to li -->
-    {% if plant %}
-        <h3>{{ plant }}</h3>
-        <div><a href="/plants/" + plant>{{ plant }}</a></div>
-            <ul>
+    {% for plant, logs in plants.items() %}
+        <ul>
+            <div><a href={{ plant_urls[plant] }}>{{ plant }}</a></div>
             {% for log in logs %}
                 <li>{{ log }}</li>
             {% endfor %}
-            </ul>
-    {% else %}
-        {% for plant, logs in plants.items() %}
-            <ul>
-                <div><a href="/plants/" + plant>{{ plant }}</a></div>
-                {% for log in logs %}
-                    <li>{{ log }}</li>
-                {% endfor %}
-            </ul>
-        {% endfor %}
-    {% endif%}
+        </ul>
+    {% endfor %}
 </body>
 </html>
