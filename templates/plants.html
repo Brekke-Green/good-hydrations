@@ -5,7 +5,13 @@
     <title>GOOD HYDRATIONS</title>
 </head>
 <body>
-    <h1>PLANTS</h1>
+    {% if plants_length > 1 %}
+        <h1>PLANTS</h1>
+    {% else %}
+        {% for plant in plants.keys() %}
+            <h1>{{ plant }}</h1>
+        {% endfor %}
+    {% endif %}
     <!-- TODO: map each plant to ul and each log to li -->
     {% for plant, logs in plants.items() %}
         <ul>
